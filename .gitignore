@@ -1,0 +1,33 @@
+# macOS
+.DS_Store
+
+# Docker
+**/data/
+**/logs/
+**/tmp/
+**/volumes/
+.env
+.env.*
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# General
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+.idea/
+.vscode/
+*.code-workspace
