@@ -1,7 +1,6 @@
 services:
   mongo:
-    image: mongo:5.0
-    container_name: DevlinMongoDB
+    image: mongo:8
     # restart: always
     volumes:
       - mongo-data:/data/db

@@ -1,14 +1,14 @@
 services:
   mariadb:
-    image: mariadb:10.10.3
+    image: mariadb:11
     # restart: always
     environment:
       MYSQL_DATABASE: docker_maria
       MYSQL_ROOT_PASSWORD: pass
     volumes:
-      - mariadb-data:/var/lib/mariadb
+      - mariadb-data:/var/lib/mysql
     ports:
-      - 3306:3306
+      - 3307:3306
 
 volumes:
   mariadb-data:
@@ -16,5 +16,5 @@ volumes:
 networks:
   dev:
     driver: bridge
-# connection string mysql://root:pass@localhost:3306/databasename
-# data grip connection string jdbc:mariadb://localhost:3306/databasename
+# connection string mysql://root:pass@localhost:3307/databasename
+# data grip connection string jdbc:mariadb://localhost:3307/databasename

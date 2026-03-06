@@ -1,0 +1,58 @@
+@baseUrl = http://localhost:9200
+
+### Cluster health
+GET {{baseUrl}}/_cluster/health?pretty
+
+### Reset demo index
+DELETE {{baseUrl}}/products
+
+### Create index
+PUT {{baseUrl}}/products
+Content-Type: application/json
+
+{
+  "mappings": {
+    "properties": {
+      "name": { "type": "text" },
+      "category": { "type": "keyword" },
+      "price": { "type": "float" },
+      "in_stock": { "type": "boolean" }
+    }
+  }
+}
+
+### Insert documents (bulk)
+POST {{baseUrl}}/products/_bulk?refresh=true
+Content-Type: application/x-ndjson
+
+{ "index": { "_id": "1" } }
+{ "name": "Mechanical Keyboard", "category": "electronics", "price": 89.99, "in_stock": true }
+{ "index": { "_id": "2" } }
+{ "name": "Notebook", "category": "stationery", "price": 4.99, "in_stock": true }
+{ "index": { "_id": "3" } }
+{ "name": "Wireless Mouse", "category": "electronics", "price": 24.99, "in_stock": false }
+
+### Search all documents
+GET {{baseUrl}}/products/_search?pretty
+Content-Type: application/json
+
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+### Search by category
+GET {{baseUrl}}/products/_search?pretty
+Content-Type: application/json
+
+{
+  "query": {
+    "term": {
+      "category": "electronics"
+    }
+  }
+}
+
+### Delete index
+DELETE {{baseUrl}}/products

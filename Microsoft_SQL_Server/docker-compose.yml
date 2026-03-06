@@ -1,8 +1,6 @@
 services:
   mssql:
-    # image: "mcr.microsoft.com/mssql/server"
-    image: "mcr.microsoft.com/azure-sql-edge" # Apple Silicon compatible
-    container_name: MS_SQL_Server
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
     # restart: always
     environment:
       SA_PASSWORD: "Pass123!" # Pass123! or pass

@@ -1,9 +1,7 @@
 services:
   redis:
-    image: bitnami/redis:6.2.10
+    image: redis:8
     # restart: always
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
     volumes:
       - redis-data:/data
     ports:

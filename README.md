@@ -5,10 +5,12 @@ This repository provides ready-to-use Docker Compose configurations for popular 
 ## Included Services
 
 - **CouchDB**
+- **Elasticsearch**
 - **MariaDB**
 - **Microsoft SQL Server**
 - **MongoDB**
 - **MySQL**
+- **OpenSearch**
 - **PostgreSQL**
 - **Qdrant**
 - **Redis**
@@ -40,8 +42,47 @@ This repository provides ready-to-use Docker Compose configurations for popular 
    docker-compose down
    ```
 
-## Orchestrate All Services (Optional)
-You can create a root-level `docker-compose.yml` to run multiple services at once. (Not included by default to avoid port conflicts.)
+## Orchestrate Services From Root
+
+This repository now includes a root-level `docker-compose.yml` with a `search` profile for Elasticsearch and OpenSearch.
+
+Start both search services:
+
+```sh
+docker compose --profile search up -d
+```
+
+Stop them:
+
+```sh
+docker compose --profile search down
+```
+
+## Run All Databases For Demos
+
+From the repository root:
+
+```sh
+bash scripts/start-all-databases.sh
+```
+
+Quick health check:
+
+```sh
+bash scripts/check-all-databases.sh
+```
+
+Stop all services:
+
+```sh
+bash scripts/stop-all-databases.sh
+```
+
+Stop all services and remove volumes for a clean slate:
+
+```sh
+bash scripts/stop-all-databases.sh --volumes
+```
 
 ## Best Practices
 - Each service uses named volumes for data persistence.
