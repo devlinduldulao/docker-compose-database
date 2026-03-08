@@ -1,28 +1,37 @@
 {
   "folders": [
     {
-      "path": "Microsoft_SQL_Server"
+      "path": "CouchDB"
+    },
+    {
+      "path": "Elasticsearch"
     },
     {
       "path": "MariaDB"
     },
     {
+      "path": "Microsoft_SQL_Server"
+    },
+    {
       "path": "MongoDB"
-    },
-    {
-      "path": "PostgreSQL"
-    },
-    {
-      "path": "Redis"
     },
     {
       "path": "MySQL"
     },
     {
-      "path": "CouchDB"
+      "path": "Opensearch"
+    },
+    {
+      "path": "PostgreSQL"
     },
     {
       "path": "Qdrant"
+    },
+    {
+      "path": "Redis"
+    },
+    {
+      "path": "scripts"
     },
     {
       "path": "Weaviate"
