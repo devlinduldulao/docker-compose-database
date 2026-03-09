@@ -42,17 +42,39 @@ This repository provides ready-to-use Docker Compose configurations for popular 
    docker-compose down
    ```
 
+## Windows Quick Start
+
+If you are using PowerShell Core on Windows, use the PowerShell scripts from the repository root:
+
+```powershell
+.\scripts\start-all-databases.ps1
+.\scripts\check-all-databases.ps1
+.\scripts\stop-all-databases.ps1
+```
+
+To remove volumes as well:
+
+```powershell
+.\scripts\stop-all-databases.ps1 -Volumes
+```
+
+If script execution is restricted on Windows, run the scripts with:
+
+```powershell
+pwsh -ExecutionPolicy Bypass -File .\scripts\start-all-databases.ps1
+```
+
 ## Orchestrate Services From Root
 
 This repository now includes a root-level `docker-compose.yml` with a `search` profile for Elasticsearch and OpenSearch.
 
-Start both search services:
+Start both search services from bash or PowerShell:
 
 ```sh
 docker compose --profile search up -d
 ```
 
-Stop them:
+Stop them from bash or PowerShell:
 
 ```sh
 docker compose --profile search down
@@ -62,26 +84,58 @@ docker compose --profile search down
 
 From the repository root:
 
+Linux/macOS (bash):
+
 ```sh
 bash scripts/start-all-databases.sh
 ```
 
+Windows (PowerShell Core):
+
+```powershell
+.\scripts\start-all-databases.ps1
+```
+
 Quick health check:
+
+Linux/macOS (bash):
 
 ```sh
 bash scripts/check-all-databases.sh
 ```
 
+Windows (PowerShell Core):
+
+```powershell
+.\scripts\check-all-databases.ps1
+```
+
 Stop all services:
+
+Linux/macOS (bash):
 
 ```sh
 bash scripts/stop-all-databases.sh
 ```
 
+Windows (PowerShell Core):
+
+```powershell
+.\scripts\stop-all-databases.ps1
+```
+
 Stop all services and remove volumes for a clean slate:
+
+Linux/macOS (bash):
 
 ```sh
 bash scripts/stop-all-databases.sh --volumes
+```
+
+Windows (PowerShell Core):
+
+```powershell
+.\scripts\stop-all-databases.ps1 -Volumes
 ```
 
 ## Best Practices
